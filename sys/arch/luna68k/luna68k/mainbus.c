@@ -43,7 +43,7 @@ __KERNEL_RCSID(0, "$NetBSD: mainbus.c,v 1.21 2023/04/23 06:57:59 tsutsui Exp $")
 
 static const struct mainbus_attach_args luna_devs[] = {
 	{ "clock",  NVRAM_ADDR, -1 },	/* Mostek/Dallas TimeKeeper */
-	{ "lcd",    OBIO_PIO1A, -1 },	/* Sharp LM16X212 LCD module */
+//	{ "lcd",    OBIO_PIO1A, -1 },	/* Sharp LM16X212 LCD module */
 	{ "le",     LANCE_ADDR, 3 },	/* Am7990 */
 	{ "sio",    OBIO_SIO, 6 },	/* uPD7201A */
 	{ "xpbus",  TRI_PORT_RAM, -1 },	/* HD647180XP */

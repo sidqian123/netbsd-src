@@ -143,7 +143,7 @@ mainbus0 at root
 clock0	at mainbus0
 
 # LCD on front panel
-lcd0	at mainbus0
+# lcd0	at mainbus0
 
 # uPD7201 SIO
 sio0	at mainbus0
