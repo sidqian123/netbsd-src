@@ -14,14 +14,14 @@ sudo chmod -R 777 /Volumes/obj
 echo "Step 1: Building tools for luna68k architecture..."
 docker exec -it csci104 /bin/bash -c "
     cd /work/netbsd-src &&
-    ./build.sh -O /work/obj -m luna68k -N1 -j 40 -U tools
+    ./build.sh -O /work/obj -m luna68k -N1 -j 50 -U tools
 "
 
 # Step 2: Build the kernel
 echo "Building kernel=SIDQIAN with gcc..."
 docker exec -it csci104 /bin/bash -c "
     cd /work/netbsd-src &&
-    ./build.sh -O /work/obj -m luna68k -N1 -j 40 -U -u kernel=SIDQIAN
+    ./build.sh -O /work/obj -m luna68k -N1 -j 50 -U -u kernel=SIDQIAN
 "
 
 echo "Build completed!"

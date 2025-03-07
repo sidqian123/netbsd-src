@@ -134,9 +134,15 @@ options 	WSDISPLAY_COMPAT_RAWKBD
 options 	WS_KERNEL_FG=WSCOL_GREEN
 #options 	WS_KERNEL_BG=WSCOL_BLACK
 
+# ramdisk
+options 	MEMORY_DISK_HOOKS
+options 	MEMORY_DISK_IS_ROOT
+options 	MEMORY_DISK_SERVER=0
+options 	MEMORY_DISK_ROOT_SIZE=2048  
+
 options 	FONT_OMRON12x20
 
-config netbsd root on md0a type ?
+config netbsd root on md0a type ffs
 
 mainbus0 at root
 

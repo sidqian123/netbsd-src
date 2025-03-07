@@ -186,7 +186,12 @@ md_attach(device_t parent, device_t self, void *aux)
 	disk_attach(&sc->sc_dkdev);
 
 	if (sc->sc_type != MD_UNCONFIGURED)
+		{// md_set_disklabel(sc);
+		sc->sc_type = MD_KMEM_ALLOCATED;
+		sc->sc_size = 2048*1024;
+		sc->sc_addr = kmem_alloc(sc->sc_size, KM_SLEEP);
 		md_set_disklabel(sc);
+		}
 
 	if (!pmf_device_register(self, NULL, NULL))
 		aprint_error_dev(self, "couldn't establish power handler\n");

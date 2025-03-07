@@ -16,7 +16,7 @@ echo "Creating and adding ramdisk to luna68k kernel..."
 docker exec -it csci104 /bin/bash -c "
     # Create ramdisk image with small size
     echo 'Creating minimal ramdisk image (1MB)...'
-    /work/obj/tooldir.Linux-6.12.5-linuxkit-aarch64/bin/nbmakefs -s 1024k /tmp/luna68k-ramdisk.fs /work/rootfs_ramdisk
+    /work/obj/tooldir.Linux-6.12.5-linuxkit-aarch64/bin/nbmakefs -s 1024k -t ffs /tmp/luna68k-ramdisk.fs /work/rootfs_ramdisk
 
     # Get kernel file
     KERNEL=/work/obj/sys/arch/luna68k/compile/SIDQIAN/netbsd
@@ -24,9 +24,10 @@ docker exec -it csci104 /bin/bash -c "
     # Get mdsetimage tool - correct path
     MDSETIMAGE=/work/obj/tools/mdsetimage/mdsetimage
 
-    # Add ramdisk to kernel
+    # Embed the ramdisk into the kernel properly
     echo 'Adding ramdisk to kernel...'
-    \$MDSETIMAGE -v \$KERNEL /tmp/luna68k-ramdisk.fs
+    cp \$KERNEL \$KERNEL.orig  # Backup original kernel
+    \$MDSETIMAGE -v -s 2048k \$KERNEL /tmp/luna68k-ramdisk.fs
 
     # Verify kernel size (before and after)
     KERNEL_SIZE_BEFORE=\$(stat -c %s /work/obj/sys/arch/luna68k/compile/SIDQIAN/netbsd.orig 2>/dev/null || echo 'unknown')
