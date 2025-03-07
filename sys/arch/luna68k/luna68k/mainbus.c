@@ -48,8 +48,8 @@ static const struct mainbus_attach_args luna_devs[] = {
 	{ "sio",    OBIO_SIO, 6 },	/* uPD7201A */
 	{ "xpbus",  TRI_PORT_RAM, -1 },	/* HD647180XP */
 	{ "fb",     BMAP_PALLET2, -1 },	/* BrookTree RAMDAC */
-	{ "spc",    SCSI_ADDR, 2 },	/* internal MB89352 */
-	{ "spc",    SCSI_2_ADDR, 2 },	/* external MB89352 (on LUNA-II) */
+	// { "spc",    SCSI_ADDR, 2 },	/* internal MB89352 */
+	// { "spc",    SCSI_2_ADDR, 2 },	/* external MB89352 (on LUNA-II) */
 };
 
 static void mainbus_attach(device_t, device_t, void *);

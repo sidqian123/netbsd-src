@@ -136,7 +136,7 @@ options 	WS_KERNEL_FG=WSCOL_GREEN
 
 options 	FONT_OMRON12x20
 
-config		netbsd root on ? type ?
+config netbsd root on md0a type ?
 
 mainbus0 at root
 
@@ -152,8 +152,8 @@ ws0	at sio0			# port for keyboard and mouse
 # AM7990 LANCE
 le0	at mainbus0
 # MB89532 SPC
-spc0	at mainbus0
-spc1	at mainbus0		# 2nd SCSI on LUNA-II
+# spc0	at mainbus0
+# spc1	at mainbus0		# 2nd SCSI on LUNA-II
 # framebuffer
 fb0	at mainbus0		# 16 or 256 pseudo color
 
@@ -173,12 +173,12 @@ wskbd*		at ws? console ? mux 1
 wsmouse*	at ws? mux 0
 
 # SCSI bus support
-scsibus* at spc?
+# scsibus* at spc?
 
 # SCSI devices
-sd* at scsibus? target ? lun ?		# SCSI disks
-st* at scsibus? target ? lun ?		# SCSI tapes
-cd* at scsibus? target ? lun ?		# SCSI CD-ROMs
+# sd* at scsibus? target ? lun ?		# SCSI disks
+# st* at scsibus? target ? lun ?		# SCSI tapes
+# cd* at scsibus? target ? lun ?		# SCSI CD-ROMs
 #ch* at scsibus? target ? lun ?		# SCSI changer devices
 #ss* at scsibus? target ? lun ?		# SCSI scanners
 #uk* at scsibus? target ? lun ?		# unknown SCSI devices
